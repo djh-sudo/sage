@@ -61,3 +61,23 @@ result=pi^2
 result.numerical_approx()
 9.86960440108936
 ```
+## 椭圆曲线
+* ### def
+```
+y^(2) ≡ x^(3) + ax + b
+```
+* 1.sage可以生成和绘制相关的椭圆曲线
+```
+a = -5; b = 4
+E1 = EllipticCurve(RR, [a, b])
+show(plot(E1, hue=.9))
+```
+此时会生成一张椭圆曲线的图片
+* 2.生成一个有限域GF上的椭圆曲线，一般会选择一个素数
+```
+p = 137
+F =GF(p)
+E = EllipticCurve(F, [F.random_element(), F.random_element()])
+show(plot(E,hue=.9))
+E.points() #输出点数
+```
